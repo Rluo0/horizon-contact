@@ -19,5 +19,7 @@ window.HORIZON_CONFIG = {
   FALLBACK_TEAM: [
     { name: "Brandon Draws", role: "", linkedin_url: "https://www.linkedin.com/in/brandon-draws-963a0135b/" },
     { name: "Richard Luo", role: "", linkedin_url: "https://www.linkedin.com/in/richard-luo-a93889339/" },
+    { name: "Christina Pham", role: "", linkedin_url: "https://www.linkedin.com/in/christina-pham-b33354302/" },
+    { name: "Gaelle Lei", role: "", linkedin_url: "https://www.linkedin.com/in/gaelleleogaellelei/" },
   ],
 };
