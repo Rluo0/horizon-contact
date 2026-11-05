@@ -17,7 +17,7 @@ window.HORIZON_CONFIG = {
   TEAM_EMAIL: "projecthorizon06@gmail.com",
 
   FALLBACK_TEAM: [
-    { name: "Brandon", role: "", linkedin_url: "https://www.linkedin.com/in/brandon-draws-963a0135b/" },
+    { name: "Brandon Draws", role: "", linkedin_url: "https://www.linkedin.com/in/brandon-draws-963a0135b/" },
     { name: "Richard Luo", role: "", linkedin_url: "https://www.linkedin.com/in/richard-luo-a93889339/" },
   ],
 };
