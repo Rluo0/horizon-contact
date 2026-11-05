@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Project Horizon</title>
+  <meta name="description" content="Get in touch with the Project Horizon team." />
+  <meta name="theme-color" content="#0c2340" />
+  <link rel="icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0c2340;
+      --navy-soft: #1c3a5e;
+      --sun: #f6ae38;
+      --sun-deep: #ec932b;
+      --bg: #f5f8fa;
+      --card: #ffffff;
+      --line: #e3e9ef;
+      --muted: #5b6b7d;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 28px 16px 40px;
+    }
+    .hero {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 28px 24px 22px;
+      text-align: center;
+      box-shadow: 0 1px 2px rgba(12,35,64,.06), 0 8px 24px rgba(12,35,64,.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+      background: linear-gradient(90deg, var(--sun), var(--sun-deep));
+    }
+    .hero img { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; }
+    .tagline {
+      margin: 14px 0 0;
+      font-size: 14px; font-weight: 500; color: var(--muted);
+    }
+
+    h2 {
+      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); margin: 28px 4px 10px;
+    }
+
+    .btn {
+      display: flex; align-items: center; gap: 12px;
+      width: 100%; padding: 16px 18px;
+      border-radius: 14px; border: 0;
+      font: inherit; font-weight: 600; font-size: 16px;
+      text-decoration: none; cursor: pointer;
+      transition: transform .08s ease, box-shadow .15s ease;
+    }
+    .btn:active { transform: scale(.98); }
+    .btn svg { flex: none; width: 22px; height: 22px; }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-primary:hover { background: var(--navy-soft); }
+    .email-row { display: flex; gap: 8px; }
+    .email-row .btn-primary { flex: 1; min-width: 0; }
+    .email-row .btn-primary .stack { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+    .email-row .btn-primary small { font-size: 13px; font-weight: 500; opacity: .8; overflow-wrap: anywhere; }
+    .btn-icon {
+      flex: none; width: 56px; justify-content: center; padding: 0;
+      background: var(--card); color: var(--navy); border: 1px solid var(--line);
+    }
+    .btn-sun {
+      margin-top: 8px;
+      background: linear-gradient(90deg, var(--sun), var(--sun-deep));
+      color: var(--navy);
+      justify-content: center;
+    }
+
+    .team { display: grid; gap: 10px; }
+    .member {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 14px; padding: 14px 14px 14px 16px;
+      text-decoration: none; color: inherit;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    .member:hover { border-color: var(--sun); box-shadow: 0 4px 14px rgba(236,147,43,.15); }
+    .avatar {
+      flex: none; width: 44px; height: 44px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--sun), var(--sun-deep));
+      color: var(--navy); font-weight: 700; font-size: 16px;
+    }
+    .who { flex: 1; min-width: 0; }
+    .name { font-weight: 700; font-size: 16px; }
+    .role { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .li {
+      flex: none; display: flex; align-items: center; gap: 6px;
+      background: #0a66c2; color: #fff; border-radius: 10px;
+      padding: 8px 12px; font-size: 13px; font-weight: 600;
+    }
+    .li svg { width: 16px; height: 16px; }
+    .skeleton { height: 74px; border-radius: 14px; background: linear-gradient(90deg, #eef2f5, #f7f9fb, #eef2f5); background-size: 200% 100%; animation: shimmer 1.2s infinite linear; }
+    @keyframes shimmer { to { background-position: -200% 0; } }
+
+    footer { text-align: center; margin-top: 32px; font-size: 12px; color: var(--muted); }
+
+    .toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px);
+      background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <img src="logo.png" alt="Horizon" width="800" height="420" />
+      <p class="tagline">Thanks for stopping by. Let's stay in touch.</p>
+    </section>
+
+    <h2>Email the team</h2>
+    <div class="email-row">
+      <a class="btn btn-primary" id="email-link" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <span class="stack"><span>Email us</span><small id="email-text"></small></span>
+      </a>
+      <button class="btn btn-icon" id="copy-btn" aria-label="Copy email address">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      </button>
+    </div>
+    <button class="btn btn-sun" id="save-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      Save to contacts
+    </button>
+
+    <h2>Meet the team</h2>
+    <div class="team" id="team">
+      <div class="skeleton"></div>
+      <div class="skeleton"></div>
+    </div>
+
+    <footer>Project Horizon</footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      const cfg = window.HORIZON_CONFIG || {};
+      const email = cfg.TEAM_EMAIL;
+      const $ = (id) => document.getElementById(id);
+
+      // Email
+      $("email-text").textContent = email;
+      $("email-link").href = "mailto:" + email + "?subject=" + encodeURIComponent("Hello from industry night");
+
+      function toast(msg) {
+        const t = $("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => t.classList.remove("show"), 1800);
+      }
+
+      $("copy-btn").addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(email); toast("Email copied"); }
+        catch { toast(email); }
+      });
+
+      // Team list
+      const LI_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>';
+
+      function initials(name) {
+        return name.trim().split(/\s+/).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
+      }
+
+      function render(members) {
+        const team = $("team");
+        team.innerHTML = "";
+        members.forEach((m) => {
+          const a = document.createElement("a");
+          a.className = "member";
+          a.href = m.linkedin_url;
+          a.target = "_blank";
+          a.rel = "noopener";
+
+          const av = document.createElement("div");
+          av.className = "avatar";
+          av.textContent = initials(m.name);
+
+          const who = document.createElement("div");
+          who.className = "who";
+          const n = document.createElement("div");
+          n.className = "name";
+          n.textContent = m.name;
+          who.appendChild(n);
+          if (m.role) {
+            const r = document.createElement("div");
+            r.className = "role";
+            r.textContent = m.role;
+            who.appendChild(r);
+          }
+
+          const li = document.createElement("span");
+          li.className = "li";
+          li.innerHTML = LI_ICON + "LinkedIn";
+
+          a.append(av, who, li);
+          team.appendChild(a);
+        });
+        team._members = members;
+      }
+
+      async function loadTeam() {
+        if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) return cfg.FALLBACK_TEAM;
+        try {
+          const url = cfg.SUPABASE_URL.replace(/\/$/, "") +
+            "/rest/v1/team_members?select=name,role,linkedin_url&active=eq.true&order=sort_order.asc,created_at.asc";
+          const ctrl = new AbortController();
+          const timer = setTimeout(() => ctrl.abort(), 5000);
+          const res = await fetch(url, {
+            headers: { apikey: cfg.SUPABASE_ANON_KEY, Authorization: "Bearer " + cfg.SUPABASE_ANON_KEY },
+            signal: ctrl.signal,
+          });
+          clearTimeout(timer);
+          if (!res.ok) throw new Error(res.status);
+          const rows = await res.json();
+          return rows.length ? rows : cfg.FALLBACK_TEAM;
+        } catch (e) {
+          console.warn("Supabase unavailable, using fallback team list", e);
+          return cfg.FALLBACK_TEAM;
+        }
+      }
+
+      loadTeam().then(render);
+
+      // vCard: team email + each member's LinkedIn
+      $("save-btn").addEventListener("click", () => {
+        const members = $("team")._members || cfg.FALLBACK_TEAM;
+        const lines = [
+          "BEGIN:VCARD", "VERSION:3.0",
+          "FN:Project Horizon", "ORG:Project Horizon",
+          "EMAIL;TYPE=INTERNET:" + email,
+        ];
+        members.forEach((m) => lines.push("URL;TYPE=" + m.name.replace(/[^A-Za-z ]/g, "") + " LinkedIn:" + m.linkedin_url));
+        lines.push("NOTE:Met at industry night. Team: " + members.map((m) => m.name).join(", "));
+        lines.push("END:VCARD");
+        const blob = new Blob([lines.join("\r\n")], { type: "text/vcard" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "project-horizon.vcf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+    })();
+  </script>
+</body>
+</html>
